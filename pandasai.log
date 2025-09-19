@@ -1840,3 +1840,111 @@ result = {'type': 'plot', 'value': 'D:/Agents_Full_stack/Agents_backend/exports/
 2025-09-19 16:29:17 [INFO] Executing Step 7: ResultValidation
 2025-09-19 16:29:17 [INFO] Answer: {'type': 'plot', 'value': 'D:/Agents_Full_stack/Agents_backend/exports/charts/temp_chart.png'}
 2025-09-19 16:29:17 [INFO] Executing Step 8: ResultParsing
+2025-09-19 21:01:05 [INFO] Question: How many columns are there?
+2025-09-19 21:01:05 [INFO] Running PandasAI with langchain_groq-chat LLM...
+2025-09-19 21:01:05 [INFO] Prompt ID: cc9b1684-5ac7-4476-88f4-6343ae0208a2
+2025-09-19 21:01:05 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-09-19 21:01:05 [INFO] Executing Step 0: ValidatePipelineInput
+2025-09-19 21:01:05 [INFO] Executing Step 1: CacheLookup
+2025-09-19 21:01:05 [INFO] Executing Step 2: PromptGeneration
+2025-09-19 21:01:05 [INFO] Using prompt: <dataframe>
+dfs[0]:15000x19
+job_id,job_title,salary_usd,salary_currency,experience_level,employment_type,company_location,company_size,employee_residence,remote_ratio,required_skills,education_required,years_experience,industry,posting_date,application_deadline,job_description_length,benefits_score,company_name
+AI11999,Research Scientist,110448,EUR,MI,PT,Germany,M,Sweden,50,"MLOps, Computer Vision, Java, Python, TensorFlow",Associate,16,Manufacturing,2024-04-10,2025-05-12,2364,6.7,Quantum Computing Inc
+AI06469,AI Architect,237312,USD,EX,FL,Switzerland,S,Austria,100,"Kubernetes, SQL, Data Visualization, Computer Vision, Tableau",Master,15,Gaming,2024-04-23,2025-01-23,2266,5.4,Advanced Robotics
+AI11670,Machine Learning Engineer,83604,GBP,SE,CT,Australia,L,Israel,0,"TensorFlow, SQL, Docker",PhD,9,Consulting,2024-08-18,2025-03-04,1903,6.6,Neural Networks Co
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many columns are there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-09-19 21:01:05 [INFO] Executing Step 3: CodeGenerator
+2025-09-19 21:01:07 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-19 21:01:07 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:15000x19
+job_id,job_title,salary_usd,salary_currency,experience_level,employment_type,company_location,company_size,employee_residence,remote_ratio,required_skills,education_required,years_experience,industry,posting_date,application_deadline,job_description_length,benefits_score,company_name
+AI11999,Research Scientist,110448,EUR,MI,PT,Germany,M,Sweden,50,"MLOps, Computer Vision, Java, Python, TensorFlow",Associate,16,Manufacturing,2024-04-10,2025-05-12,2364,6.7,Quantum Computing Inc
+AI06469,AI Architect,237312,USD,EX,FL,Switzerland,S,Austria,100,"Kubernetes, SQL, Data Visualization, Computer Vision, Tableau",Master,15,Gaming,2024-04-23,2025-01-23,2266,5.4,Advanced Robotics
+AI11670,Machine Learning Engineer,83604,GBP,SE,CT,Australia,L,Israel,0,"TensorFlow, SQL, Docker",PhD,9,Consulting,2024-08-18,2025-03-04,1903,6.6,Neural Networks Co
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many columns are there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-09-19 21:01:08 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+num_columns = len(dfs[0].columns)
+
+# Declare result var
+result = {"type": "number", "value": num_columns}
+            ```
+            
+2025-09-19 21:01:08 [INFO] Executing Step 4: CachePopulation
+2025-09-19 21:01:08 [INFO] Executing Step 5: CodeCleaning
+2025-09-19 21:01:08 [INFO] 
+Code running:
+```
+num_columns = len(dfs[0].columns)
+result = {'type': 'number', 'value': num_columns}
+        ```
+2025-09-19 21:01:08 [INFO] Executing Step 6: CodeExecution
+2025-09-19 21:01:08 [INFO] Executing Step 7: ResultValidation
+2025-09-19 21:01:08 [INFO] Answer: {'type': 'number', 'value': 19}
+2025-09-19 21:01:08 [INFO] Executing Step 8: ResultParsing

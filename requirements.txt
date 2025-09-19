@@ -4,5 +4,5 @@ pandas
 matplotlib
 python-multipart
 requests
-pandasai
+pandasai==2.2.9
 langchain-groq
