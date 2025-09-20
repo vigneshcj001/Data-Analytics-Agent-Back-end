@@ -1,3 +1,4 @@
+# main.py
 import io
 import base64
 import pandas as pd
@@ -21,7 +22,7 @@ app.add_middleware(
 
 dataframes: Dict[str, pd.DataFrame] = {}
 
-# Helper to return chart as base64
+# Helper to convert chart to base64
 def capture_plot_base64() -> str:
     buf = io.BytesIO()
     plt.savefig(buf, format="png")
@@ -74,9 +75,10 @@ async def chat_with_data(
 
         response = {"question": question, "answer": str(answer)}
 
+        # If matplotlib chart exists, attach base64 & filename
         if plt.get_fignums():
-            response["chart_filename"] = "chart.png"
             response["chart_base64"] = capture_plot_base64()
+            response["chart_filename"] = "temp_chart.png"
 
         return response
     except Exception as e:
